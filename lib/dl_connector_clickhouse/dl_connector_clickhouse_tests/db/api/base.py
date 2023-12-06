@@ -17,7 +17,7 @@ from dl_connector_clickhouse_tests.db.core.base import BaseClickHouseTestClass
 
 class ClickHouseConnectionTestBase(BaseClickHouseTestClass, ConnectionTestBase):
     conn_type = CONNECTION_TYPE_CLICKHOUSE
-    bi_compeng_pg_on = False
+    compeng_enabled = False
 
     @pytest.fixture(scope="class")
     def bi_test_config(self) -> ApiTestEnvironmentConfiguration:

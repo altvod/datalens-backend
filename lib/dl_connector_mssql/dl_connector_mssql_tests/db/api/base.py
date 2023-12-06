@@ -19,7 +19,7 @@ from dl_connector_mssql_tests.db.core.base import BaseMSSQLTestClass
 
 class MSSQLConnectionTestBase(BaseMSSQLTestClass, ConnectionTestBase):
     conn_type = CONNECTION_TYPE_MSSQL
-    bi_compeng_pg_on = False
+    compeng_enabled = False
 
     @pytest.fixture(scope="class")
     def bi_test_config(self) -> ApiTestEnvironmentConfiguration:

@@ -20,7 +20,7 @@ from dl_connector_oracle_tests.db.core.base import BaseOracleTestClass
 
 class OracleConnectionTestBase(BaseOracleTestClass, ConnectionTestBase):
     conn_type = CONNECTION_TYPE_ORACLE
-    bi_compeng_pg_on = False
+    compeng_enabled = False
 
     @pytest.fixture(scope="class")
     def bi_test_config(self) -> ApiTestEnvironmentConfiguration:

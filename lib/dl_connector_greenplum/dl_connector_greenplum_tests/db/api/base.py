@@ -23,7 +23,7 @@ from dl_connector_greenplum_tests.db.config import (
 class GreenplumConnectionTestBase(ConnectionTestBase, ServiceFixtureTextClass):
     conn_type = CONNECTION_TYPE_GREENPLUM
     core_test_config = CORE_TEST_CONFIG
-    bi_compeng_pg_on = False
+    compeng_enabled = False
 
     @pytest.fixture(scope="class")
     def db_url(self) -> str:

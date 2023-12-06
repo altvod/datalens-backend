@@ -30,7 +30,7 @@ from dl_connector_ydb_tests.db.config import (
 
 
 class YDBConnectionTestBase(ConnectionTestBase):
-    bi_compeng_pg_on = False
+    compeng_enabled = False
     conn_type = CONNECTION_TYPE_YDB
 
     @pytest.fixture(scope="class")
