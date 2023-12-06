@@ -42,4 +42,4 @@ class BigQueryDatasetTestBase(BigQueryConnectionTestBase, DatasetTestBase):
 
 
 class BigQueryDataApiTestBase(BigQueryDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

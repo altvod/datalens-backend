@@ -52,4 +52,4 @@ class ClickHouseDatasetTestBase(ClickHouseConnectionTestBase, DatasetTestBase):
 
 
 class ClickHouseDataApiTestBase(ClickHouseDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

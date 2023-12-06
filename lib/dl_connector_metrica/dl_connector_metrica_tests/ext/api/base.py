@@ -56,7 +56,7 @@ class MetricaDatasetTestBase(MetricaConnectionTestBase, DatasetTestBase):
 
 
 class MetricaDataApiTestBase(MetricaDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False
 
     @pytest.fixture(scope="class")
     def data_api_test_params(self) -> DataApiTestParams:

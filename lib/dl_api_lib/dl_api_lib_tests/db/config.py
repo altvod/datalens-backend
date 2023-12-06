@@ -18,6 +18,8 @@ CORE_TEST_CONFIG = DefaultCoreTestConfiguration(
         f"postgresql://us:us@"
         f'{get_test_container_hostport("db-postgres", fallback_port=52509).as_pair()}/us-db-ci_purgeable'
     ),
+    redis_host=get_test_container_hostport("redis-caches").host,
+    redis_port=get_test_container_hostport("redis-caches", fallback_port=52505).port,
 )
 
 

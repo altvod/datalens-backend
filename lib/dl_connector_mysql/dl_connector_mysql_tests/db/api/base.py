@@ -54,4 +54,4 @@ class MySQLDatasetTestBase(MySQLConnectionTestBase, DatasetTestBase):
 
 
 class MySQLDataApiTestBase(MySQLDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

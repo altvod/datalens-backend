@@ -54,4 +54,4 @@ class PostgreSQLDatasetTestBase(PostgreSQLConnectionTestBase, DatasetTestBase):
 
 
 class PostgreSQLDataApiTestBase(PostgreSQLDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

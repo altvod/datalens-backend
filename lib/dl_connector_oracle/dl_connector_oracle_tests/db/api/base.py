@@ -57,4 +57,4 @@ class OracleDatasetTestBase(OracleConnectionTestBase, DatasetTestBase):
 
 
 class OracleDataApiTestBase(OracleDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

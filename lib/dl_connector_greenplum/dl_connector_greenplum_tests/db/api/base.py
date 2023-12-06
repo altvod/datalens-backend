@@ -57,4 +57,4 @@ class GreenplumDatasetTestBase(GreenplumConnectionTestBase, DatasetTestBase):
 
 
 class GreenplumDataApiTestBase(GreenplumDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

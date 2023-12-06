@@ -55,4 +55,4 @@ class MSSQLDatasetTestBase(MSSQLConnectionTestBase, DatasetTestBase):
 
 
 class MSSQLDataApiTestBase(MSSQLDatasetTestBase, StandardizedDataApiTestBase):
-    mutation_caches_on = False
+    mutation_caches_enabled = False

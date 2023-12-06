@@ -61,7 +61,7 @@ class ServiceFixtureTextClass(metaclass=abc.ABCMeta):
     core_test_config: ClassVar[CoreTestEnvironmentConfigurationBase]
     connection_settings: ClassVar[Optional[ConnectorSettingsBase]] = None
     inst_specific_sr_factory: ClassVar[Optional[InstallationSpecificServiceRegistryFactory]] = None
-    caches_enabled: ClassVar[bool] = False
+    data_caches_enabled: ClassVar[bool] = False
     compeng_enabled: ClassVar[bool] = False
 
     @pytest.fixture(scope="session")
@@ -98,7 +98,7 @@ class ServiceFixtureTextClass(metaclass=abc.ABCMeta):
 
     @pytest.fixture(scope="function")
     async def caches_redis_client_factory(self) -> Optional[Callable[[bool], Redis]]:
-        if not self.caches_enabled:
+        if not self.data_caches_enabled:
             yield None
 
         else:

@@ -47,7 +47,7 @@ from dl_connector_clickhouse.core.clickhouse_base.dto import ClickHouseConnDTO
 
 
 class TestCompengCache(DefaultCoreTestClass):
-    caches_enabled = True
+    data_caches_enabled = True
     compeng_enabled = True
 
     @pytest.mark.asyncio
