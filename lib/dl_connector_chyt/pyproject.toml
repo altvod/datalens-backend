@@ -26,6 +26,9 @@ datalens-configs = {path = "../dl_configs"}
 datalens-api-connector = {path = "../dl_api_connector"}
 datalens-core = {path = "../dl_core"}
 datalens-db-testing = {path = "../dl_db_testing"}
+ytsaurus-client = ">=0.13.12"
+ytsaurus-yson = ">=0.4.5"
+ytsaurus-rpc-client = {version = ">=1.0.0", platform = "linux"}
 
 [tool.poetry.plugins]
 [tool.poetry.plugins."dl_api_lib.connectors"]

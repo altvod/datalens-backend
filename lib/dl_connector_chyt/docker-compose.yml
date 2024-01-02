@@ -1,0 +1,53 @@
+version: '3.7'
+
+x-constants:
+  US_MASTER_TOKEN: &c-us-master-token "AC1ofiek8coB"
+
+services:
+  db-yt-backend:
+    image: ytsaurus/local:stable
+    command: [
+      "--fqdn", "localhost",
+      "--proxy-config", "{address_resolver={enable_ipv4=%true;enable_ipv6=%false;};coordinator={public_fqdn=\"localhost:53600\"}}",
+      "--rpc-proxy-count", "0",
+      "--rpc-proxy-port", "53601",
+      "--node-count", "1"
+    ]
+    ports:
+      - "53600:80"
+      - "53601:53601"
+
+  db-yt-ui:  # TODO: Remove
+    image: ytsaurus/ui:stable
+    environment:
+      PROXY: "localhost:53600"
+      PROXY_INTERNAL: "db-yt-backend:80"
+      APP_ENV: "local"
+      APP_INSTALLATION: ""
+    ports:
+      - "53610:80"
+
+  # INFRA
+  pg-us:
+    build:
+      context: ../testenv-common/images
+      dockerfile: Dockerfile.pg-us
+    environment:
+      POSTGRES_DB: us-db-ci_purgeable
+      POSTGRES_USER: us
+      POSTGRES_PASSWORD: us
+    ports:
+     - "53609:5432"
+
+  us:
+    build:
+      context: ../testenv-common/images
+      dockerfile: Dockerfile.us
+    depends_on:
+      - pg-us
+    environment:
+      POSTGRES_DSN_LIST: "postgres://us:us@pg-us:5432/us-db-ci_purgeable"
+      AUTH_POLICY: "required"
+      MASTER_TOKEN: *c-us-master-token
+    ports:
+     - "53600:80"
