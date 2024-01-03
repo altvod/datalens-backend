@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import (
     TYPE_CHECKING,
-    ClassVar,
     Dict,
     Tuple,
 )
@@ -25,8 +24,6 @@ if TYPE_CHECKING:
 
 
 class YQLTypeTransformerBase(TypeTransformer):
-    conn_type: ClassVar[ConnectionType]
-
     _base_type_map: Dict[UserDataType, Tuple[SATypeSpec, ...]] = {
         # Note: first SA type is used as the default.
         UserDataType.integer: (
